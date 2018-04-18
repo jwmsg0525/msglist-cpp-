@@ -94,10 +94,12 @@ int MsgList::find_position(int data)
 {   int cnt = 0;
     for(node* i = getFirstOFList() ; ;i=i->n_node,cnt++)
     {
-        if(i->data == data){
+        if(i->data == data)
+        {
             break;
         }
-        if(i == getLastOfList()){
+        if(i == getLastOfList())
+        {
             if(i->data != data)
                 cnt = NULL; break;
         }
