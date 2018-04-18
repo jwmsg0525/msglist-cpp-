@@ -1,4 +1,4 @@
-<h1> MsgList </h1>
+<1> MsgList </h1>
 
  * this is a List (now It works for "int")
  * It works int C++ language
@@ -9,8 +9,8 @@
  * add header
 <pre>
 
- * msglist/msglist/msglist.hpp
- * msglist/msglist/msglist.cpp
+ * msglist/msglist.hpp
+ * msglist/msglist.cpp
 
 </pre>
 
