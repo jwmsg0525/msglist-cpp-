@@ -51,24 +51,24 @@ msglist.insert(2, 5, 23);
 
  * Find data with position 3th (begin at 0)
 <pre>
-cout&lt;&lt;msglist.find_node(3)-&rt;data&lt;&lt;endl;
+cout&lt;&lt;msglist.find_node(3)-&gt;data&lt;&lt;endl;
 
 return >> 7
 <pre>
 
  * Find data with position 3th (begin at 7)
 <pre>
-cout<<<<msglist.find_node(7,3)->>data<<<<endl;
+cout&lt;&lt;msglist.find_node(7,3)-&gt;data&lt;&lt;endl;
 </pre>
 
  * Find position with first found data (7) (begin at 0)
 <pre>
-cout<<<<msglist.find_position(7)<<<<endl;
+cout&lt;&lt;msglist.find_position(7)&lt;&lt;endl;
 </pre>
 
  * Find position with first found data (3) (begin at 6)
 <pre>
-cout<<<<msglist.find_position(6, 3)<<<<endl;
+cout&lt;&lt;msglist.find_position(6, 3)&gt;&gt;endl;
 </pre>
 
  * Remove last data(POP)
