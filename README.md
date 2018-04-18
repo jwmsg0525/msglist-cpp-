@@ -54,7 +54,7 @@ msglist.insert(2, 5, 23);
 cout&lt;&lt;msglist.find_node(3)-&gt;data&lt;&lt;endl;
 
 return >> 7
-<pre>
+</pre>
 
  * Find data with position 3th (begin at 7)
 <pre>
