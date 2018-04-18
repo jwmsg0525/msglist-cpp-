@@ -47,7 +47,7 @@ msglist.insert(5, 8);
  * Insert 23 at 2th from 5th position (insert at 7)
 <pre>
 msglist.insert(2, 5, 23);
-<pre>
+</pre>
 
  * Find data with position 3th (begin at 0)
 <pre>
