@@ -48,8 +48,6 @@ void MsgList::free_node(node *target)
 }
 
 
-
-
 node* MsgList::getLastOfList()
 {
     return lastOfList;
@@ -69,7 +67,9 @@ node* MsgList::find_node(int position)
     {
         crnt = crnt->n_node;
     }
-    for(;positioniter!=0&&position <0;positioniter++){
+    
+    for(;positioniter!=0&&position <0;positioniter++)
+    {
         crnt = crnt->p_node;
     }
   
@@ -92,7 +92,8 @@ node* MsgList::find_node(int primary, int position)
 
 int MsgList::find_position(int data)
 {   int cnt = 0;
-    for(node* i = getFirstOFList() ; ;i=i->n_node,cnt++){
+    for(node* i = getFirstOFList() ; ;i=i->n_node,cnt++)
+    {
         if(i->data == data){
             break;
         }
@@ -109,11 +110,13 @@ int MsgList::find_position(int primary, int data)
 {
     node * nowp = find_node(primary);
     int cnt = primary ;
-    for(;;nowp = nowp->n_node,cnt++){
+    for(;;nowp = nowp->n_node,cnt++)
+    {
         if(nowp->data == data){
             break;
         }
-        if(nowp == getLastOfList()){
+        if(nowp == getLastOfList())
+        {
             if(nowp->data != data)
                 cnt = NULL; break;
         }
@@ -124,18 +127,20 @@ int MsgList::find_position(int primary, int data)
 int MsgList::insert(int data)
 {
     
-    if(sizeOfList <= limitOfList || !limitOfList){
+    if(sizeOfList <= limitOfList || !limitOfList)
+    {
         node* nowp = getLastOfList();
         node* newNode = nodeCreate();
         newNode->data = data;
-    if(sizeOfList==0){
-        setFirstOfList(newNode);
-        setLastOfList(newNode);
-        setP_node(getLastOfList(), newNode);
-        setN_node(getFirstOFList(), newNode);
-        sizeOfList++;
-        return  0;
-    }
+        if(sizeOfList==0)
+        {
+            setFirstOfList(newNode);
+            setLastOfList(newNode);
+            setP_node(getLastOfList(), newNode);
+            setN_node(getFirstOFList(), newNode);
+            sizeOfList++;
+            return  0;
+        }
         setP_node(nowp, newNode);
         setN_node(newNode, nowp);
         setLastOfList(newNode);
@@ -147,7 +152,9 @@ int MsgList::insert(int data)
         return 0;
         
         
-    }else{
+    }
+    else
+    {
         return -1;
     }
     
@@ -157,12 +164,14 @@ int MsgList::insert(int data)
 int MsgList::insert(int position,int data)
 {
     
-    if(sizeOfList == 0){
+    if(sizeOfList == 0)
+    {
         insert(data);
         return 0;
     }
     
-    if(sizeOfList <= limitOfList || !limitOfList){
+    if(sizeOfList <= limitOfList || !limitOfList)
+    {
         node* nowp = find_node(position);
         node* newNode = nodeCreate();
         newNode->data = data;
@@ -170,7 +179,8 @@ int MsgList::insert(int position,int data)
         setN_node(newNode, nowp->p_node);
         setP_node(newNode, nowp);
         setN_node(nowp, newNode);
-        if(position % sizeOfList == 0){
+        if(position % sizeOfList == 0)
+        {
             setFirstOfList(newNode);
 
         }
@@ -178,7 +188,9 @@ int MsgList::insert(int position,int data)
         return 0;
         
         
-    }else{
+    }
+    else
+    {
         return -1;
     }
 }
@@ -186,12 +198,14 @@ int MsgList::insert(int position,int data)
 int MsgList::insert(int primary, int position, int data)
 {
     
-    if(sizeOfList == 0){
+    if(sizeOfList == 0)
+    {
         insert(data);
         return 0;
     }
     
-    if(sizeOfList <= limitOfList || !limitOfList){
+    if(sizeOfList <= limitOfList || !limitOfList)
+    {
         node* nowp = find_node(primary,position);
         node* newNode = nodeCreate();
         newNode->data = data;
@@ -199,7 +213,8 @@ int MsgList::insert(int primary, int position, int data)
         setN_node(newNode, nowp->p_node);
         setP_node(newNode, nowp);
         setN_node(nowp, newNode);
-        if((primary+position) % sizeOfList == 0){
+        if((primary+position) % sizeOfList == 0)
+        {
             setFirstOfList(newNode);
 
         }
@@ -207,14 +222,18 @@ int MsgList::insert(int primary, int position, int data)
         return 0;
         
         
-    }else{
+    }
+    else
+    {
         return -1;
     }
     
 }
 
-int MsgList::remove(){
-    if(sizeOfList <= 0){
+int MsgList::remove()
+{
+    if(sizeOfList <= 0)
+    {
         return -1;
     }
     node* nowp = getLastOfList();
@@ -227,7 +246,8 @@ int MsgList::remove(){
 
 int MsgList::remove_p(int position)
 {
-    if(sizeOfList <= 0){
+    if(sizeOfList <= 0)
+    {
         return -1;
     }
     if((position)%sizeOfList == sizeOfList-1)
@@ -237,7 +257,8 @@ int MsgList::remove_p(int position)
     node* nowp = find_node(position);
     setP_node(nowp->p_node, nowp->n_node);
     setN_node(nowp->n_node, nowp->p_node);
-    if(position%sizeOfList == 0){
+    if(position%sizeOfList == 0)
+    {
         setFirstOfList(nowp->n_node);
     }
 
@@ -247,7 +268,8 @@ int MsgList::remove_p(int position)
 }
 int MsgList::remove_p(int primary, int position)
 {
-    if(sizeOfList <= 0){
+    if(sizeOfList <= 0)
+    {
         return -1;
     }
     if((position+primary)%sizeOfList == sizeOfList-1)
@@ -259,7 +281,8 @@ int MsgList::remove_p(int primary, int position)
     
     setP_node(nowp->p_node, nowp->n_node);
     setN_node(nowp->n_node, nowp->p_node);
-    if((position+primary)%sizeOfList == 0){
+    if((position+primary)%sizeOfList == 0)
+    {
         setFirstOfList(nowp->n_node);
     }
     
@@ -269,7 +292,8 @@ int MsgList::remove_p(int primary, int position)
 }
 int MsgList::remove_d(int data)
 {
-    if(sizeOfList <= 0){
+    if(sizeOfList <= 0)
+    {
         return -1;
     }
     
@@ -282,7 +306,8 @@ int MsgList::remove_d(int data)
     setP_node(nowp->p_node, nowp->n_node);
     setN_node(nowp->n_node, nowp->p_node);
     free_node(nowp);
-    if(position%sizeOfList == 0){
+    if(position%sizeOfList == 0)
+    {
         setFirstOfList(nowp->n_node);
     }
     sizeOfList--;
@@ -291,7 +316,8 @@ int MsgList::remove_d(int data)
 }
 int MsgList::remove_d(int primary, int data)
 {
-    if(sizeOfList == 0){
+    if(sizeOfList == 0)
+    {
         return -1;
     }
     int position =  find_position(primary, data);
@@ -303,7 +329,8 @@ int MsgList::remove_d(int primary, int data)
     setP_node(nowp->p_node, nowp->n_node);
     setN_node(nowp->n_node, nowp->p_node);
     free_node(nowp);
-    if(position%sizeOfList == 0){
+    if(position%sizeOfList == 0)
+    {
         setFirstOfList(nowp->n_node);
     }
     sizeOfList--;
@@ -343,18 +370,23 @@ int MsgList::modify_d(int target, int source)
         node* nowp = find_node(position);
         nowp->data  = source;
         return 0;
-    } else{
+    }
+    else
+    {
         return -1;
     }
 }
 int MsgList::modify_d(int primary, int target, int source)
 {
     int newPosition = find_position(primary, target);
-    if(newPosition){
+    if(newPosition)
+    {
         node* nowp = find_node(newPosition);
         nowp -> data = source;
         return 0;
-    }else {
+    }
+    else
+    {
         return -1;
     }
 }
