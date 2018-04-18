@@ -8,6 +8,34 @@
 
  * add header
 <pre>
+
  * msglist/msglist/msglist.hpp
  * msglist/msglist/msglist.cpp
+
 </pre>
+
+ * Define MsgList
+<pre>
+MsgList msglist;
+</pre>
+
+ * Close MsgList
+<pre>
+~msglist;
+</pre>
+
+ * Example
+	Push 3, 6, 7, 5, 4, 9, 8, 4, 7
+<pre>
+MsgList msglist;
+msglist.insert(3);
+msglist.insert(6);
+msglist.insert(7);
+msglist.insert(5);
+msglist.insert(4);
+msglist.insert(9);
+msglist.insert(8);
+msglist.insert(4);
+msglist.insert(7);
+<pre>
+
