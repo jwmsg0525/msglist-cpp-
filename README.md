@@ -51,7 +51,7 @@ msglist.insert(2, 5, 23);
 
  * Find data with position 3th (begin at 0)
 <pre>
-cout<<<<msglist.find_node(3)->>data<<<<endl;
+cout&lt;&lt;msglist.find_node(3)-&rt;data&lt;&lt;endl;
 
 return >> 7
 <pre>
