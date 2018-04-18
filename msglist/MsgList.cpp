@@ -114,7 +114,8 @@ int MsgList::find_position(int primary, int data)
     int cnt = primary ;
     for(;;nowp = nowp->n_node,cnt++)
     {
-        if(nowp->data == data){
+        if(nowp->data == data)
+        {
             break;
         }
         if(nowp == getLastOfList())
